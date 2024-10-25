@@ -28,7 +28,6 @@ function one_task() {
             let A = document.getElementById("input_one_task_A");
             let B = document.getElementById("input_one_task_B");
             let C = document.getElementById("input_one_task_C");
-            console.log(Number(A.value) + Number(B.value))
             if (Number(A.value) > 0 && Number(B.value) > 0 && Number(C.value) > 0) {
                 document.getElementById("one_task_result").textContent = "TRUE";
             } else {
