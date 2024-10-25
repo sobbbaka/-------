@@ -1,6 +1,7 @@
 html {
     background-image: url(img/Slide\ 16_9\ -\ 1.svg);
     background-size: cover;
+    
 }
 
 body {
@@ -17,7 +18,7 @@ h1 {
 .rectangle {
     border: 3px solid;
     margin: auto;
-    padding: 20px;
+    padding: 15px;
     background-color: #933257;
     display: flex;
     flex-direction: column;
@@ -28,10 +29,50 @@ h1 {
 
 .lab {
     color: #ECF479;
+    font-size: 18px;
 }
 
 .button {
     padding: 10px;
     border-radius: 40px 40px 40px 40px;
 
+}
+
+.navigation{
+    display: flex;
+    padding: 20px;
+    font-size: 25px;
+    border: 2px solid #933257;
+    background-color: #933257;
+}
+
+a{
+    text-decoration: none;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: #ECF479;
+    
+}
+
+form{
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    flex: 1;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+label{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.task_result{
+    padding: 15px;
+    color: #ECF479;
+    font-size: 18px;
 }

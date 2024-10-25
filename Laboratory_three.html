@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Laba 3 Levakov</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+
+<nav>
+    <div class="navigation">
+      <a href="index.html">Лабораторная №2</a>
+      <a href="Laboratory_three.html">Лабораторная №3</a>
+    </div>
+</nav>
+
+<body>
+    <h1>Лабороторная работа №3</h1>
+    <div class="rectangle">
+        <p class="lab">Задание №1</p>
+        <p class="lab">Даны три целых числа: A, B, C. Проверить истинность высказывания: «Каждое из чисел A, B, C положительное».</p>
+        <form>
+            <label class="lab">Введите A:</label>
+            <input id="input_one_task_A" type="text">
+
+            <label class="lab">Введите B:</label>
+            <input id="input_one_task_B" type="text">
+
+            <label class="lab">Введите C:</label>
+            <input id="input_one_task_C" type="text">
+        </form>
+        <button class="button" type="button" id="one_task" onclick="one_task()">Решить задачу</button>
+        <div class="task_result" id="one_task_result"></div>
+        <script src="js/script.js"></script>
+    </div>
+
+    <div class="rectangle">
+        <p class="lab">Задание №2</p>
+        <p class="lab">Даны три числа. Найти наименьшее из них.</p>
+        <form>
+            <label class="lab">Введите первое число:</label>
+            <input id="input_two_task_first" type="text">
+
+            <label class="lab">Введите второе число:</label>
+            <input id="input_two_task_second" type="text">
+
+            <label class="lab">Введите третье число:</label>
+            <input id="input_two_task_tree" type="text">
+        </form>
+        <button class="button" type="button" id="two_task" onclick="two_task()">Решить задачу</button>
+        <div class="task_result" id="two_task_result"></div>
+        <script src="js/script.js"></script>
+    </div>
+
+    <div class="rectangle">
+        <p class="lab">Задание №3</p>
+        <p class="lab">Вычислить значение функции y=f(x) при произвольных значениях x.</p>
+        <img src="img/task_tree.png">
+        <form>
+            <label class="lab">Введите Х:</label>
+            <input id="input_tree_task_X" type="text">
+        </form>
+        <button class="button" type="button" id="tree_task" onclick="tree_task()">Решить задачу</button>
+        <div class="task_result" id="tree_task_result"></div>
+        <script src="js/script.js"></script>
+    </div>
+
+    <div class="rectangle">
+        <p class="lab">Задание №4</p>
+        <p class="lab">Вычислить значение функции y=f(x) при произвольных значениях x.<br />Для вычисления значения функции использовать оператор switch.</p>
+        <img src="img/task_four.png">
+        <form>
+            <label class="lab">Введите Х:</label>
+            <input id="input_four_task_X" type="text">
+        </form>
+        <button class="button" type="button" id="four_task" onclick="four_task()">Решить задачу</button>
+        <div class="task_result" id="four_task_result"></div>
+        <script src="js/script.js"></script>
+    </div>
+</body>
