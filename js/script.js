@@ -34,10 +34,10 @@ function one_task() {
                 if (Number(A.value) < 0 || Number(B.value) < 0 || Number(C.value) < 0) {
                     document.getElementById("one_task_result").textContent = "FALSE";
                 } else {
-                    if (isNaN(A.value) == true || isNaN(B.value) == true || isNaN(C.value == true)) {
+                    if (isNaN(Number(A.value)) == true || isNaN(Number(B.value)) == true || isNaN(Number(C.value) == true)) {
                         document.getElementById("one_task_result").textContent = "NOT NUMBER";
                     } else {
-                        if (A.value == null || B.value != null || C.value != null) {
+                        if (A.value != null || B.value != null || C.value != null) {
                             document.getElementById("one_task_result").textContent = "EMPTY VALUES";
                         }
                     }
@@ -71,13 +71,16 @@ function tree_task() {
         onclick = function () {
             let X = document.getElementById("input_tree_task_X");
             if (Number(X.value) > -2 && Number(X.value) <= 0) {
-                document.getElementById("tree_task_result").textContent = "Ответ: " + (1 / (1 + (2, 1 * Math.abs(Number(X.value)))));
+                let result_one = 1 / (1 + (2.1 * Math.abs(Number(X.value))));
+                document.getElementById("tree_task_result").textContent = "Ответ: " + result_one;
             } else {
                 if (Number(X.value) <= -2) {
-                    document.getElementById("tree_task_result").textContent = "Ответ: " + (Math.cos(0, 7 * (Number(X.value) * Number(X.value))) + (0, 5 * Number(X.value)));
+                    let result_two = Math.cos(0.7 * (Number(X.value) * Number(X.value))) + (0.5 * Number(X.value));
+                    document.getElementById("tree_task_result").textContent = "Ответ: " + result_two;
                 } else {
                     if (Number(X.value) > 0) {
-                        document.getElementById("tree_task_result").textContent = "Ответ: " + Math.sqrt(1 + Math.E ** (2, 1 * X.value));
+                        let result_tree = Math.sqrt(1 + Math.E ** (2.1 * X.value));
+                        document.getElementById("tree_task_result").textContent = "Ответ: " + result_tree;
                     }
                 }
             }
@@ -90,13 +93,16 @@ function four_task() {
             let X = document.getElementById("input_four_task_X");
             switch (Number(X.value)) {
                 case 0:
-                    document.getElementById("four_task_result").textContent = "Ответ: " + (1 / (1 + (2, 1 * Math.abs(Number(X.value)))));
+                    let result_one = 1 / (1 + (2.1 * Math.abs(Number(X.value))));
+                    document.getElementById("four_task_result").textContent = "Ответ: " + result_one;
                     break;
                 case -2:
-                    document.getElementById("four_task_result").textContent = "Ответ: " + (Math.cos(0, 7 * (Number(X.value) * Number(X.value))) + (0, 5 * Number(X.value)));
+                    let result_two = Math.cos(0.7 * (Number(X.value) * Number(X.value))) + (0.5 * Number(X.value));
+                    document.getElementById("four_task_result").textContent = "Ответ: " + result_two;
                     break;
                 case 1:
-                    document.getElementById("four_task_result").textContent = "Ответ: " + Math.sqrt(1 + Math.E ** (2, 1 * Number(X.value)));
+                    let result_tree = Math.sqrt(1 + Math.E ** (2.1 * X.value));
+                    document.getElementById("four_task_result").textContent = "Ответ: " + result_tree;
                     break;
                 default:
                     break;
