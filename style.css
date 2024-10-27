@@ -73,6 +73,10 @@ img {
     height: auto;
 }
 
+input {
+    font-family: Monstserrat;
+}
+
 label {
     padding-right: 5px;
     padding-left: 5px;
