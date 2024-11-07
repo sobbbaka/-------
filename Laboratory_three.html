@@ -5,12 +5,22 @@
     <title>Laba 3 Levakov</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <nav>
     <div class="navigation">
         <a href="index.html">Лабораторная №2</a>
         <a href="Laboratory_three.html">Лабораторная №3</a>
+        <a href="Laboratory_four.html">Лабораторная №4</a>
+    </div>
+    <div class="burger">
+        <div onclick="Menu()"><img src="img/Burger.svg" class="logo"></div>
+        <ul class="menu" id="menu">
+            <a class="mobile_navigation" href="index.html">Лабораторная №2</a>
+            <a class="mobile_navigation" href="Laboratory_three.html">Лабораторная №3</a>
+            <a class="mobile_navigation" href="Laboratory_four.html">Лабораторная №4</a>
+        </ul>
     </div>
 </nav>
 
@@ -38,7 +48,7 @@
     <div class="rectangle">
         <p class="lab">Задание №2</p>
         <p class="lab">Даны три числа. Найти наименьшее из них.</p>
-        <form>
+        <form class="mobile_fix">
             <label class="lab">Введите первое число:</label>
             <input id="input_two_task_first" type="text">
 
@@ -56,7 +66,7 @@
     <div class="rectangle">
         <p class="lab">Задание №3</p>
         <p class="lab">Вычислить значение функции y=f(x) при произвольных значениях x.</p>
-        <img src="img/task_tree.png">
+        <img class="photo" src="img/task_tree.png">
         <form>
             <label class="lab">Введите Х:</label>
             <input id="input_tree_task_X" type="text">
@@ -70,7 +80,7 @@
         <p class="lab">Задание №4</p>
         <p class="lab">Вычислить значение функции y=f(x) при произвольных значениях x.<br />Для вычисления значения
             функции использовать оператор switch.</p>
-        <img src="img/task_four.png">
+        <img class="photo" src="img/task_four.png">
         <form>
             <label class="lab">Введите Х:</label>
             <input id="input_four_task_X" type="text">
@@ -80,3 +90,11 @@
         <script src="js/script.js"></script>
     </div>
 </body>
+
+<footer>
+    <div class="rectangle_bot">
+        <a class="bot_text">denlevakov54@gmail.com</a>
+        <a class="bot_text" href="https://vk.com/bladefuryjuggernaut">ВК</a>
+        <a class="bot_text" href="https://web.telegram.org/k/#@Denqik">Телеграм</a>
+    </div>
+</footer>

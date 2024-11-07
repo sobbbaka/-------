@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>Laba 2 Levakov</title>
+    <title>Laba 3 Levakov</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,19 +25,27 @@
 </nav>
 
 <body>
-    <h1>Лабороторная работа №2</h1>
+    <h1>Лабороторная работа №4</h1>
     <div class="rectangle">
         <p class="lab">Задание №1</p>
-        <p class="lab">Даны катеты прямоугольного треугольника a и b. Найти его гипотенузу c и периметр P.</p>
-        <button class="button" type="button" id="first_buttom" onclick="first_quest()">Решить задачу</button>
+        <p class="lab">Дан набор ненулевых целых чисел; признак его завершения — чис-ло 0. Вывести сумму всех
+            положительных четных чисел из данного набора. Если требуемые числа в наборе отсутствуют, то вывести 0.</p>
+        <button class="button" type="button" id="four_lab_first_buttom" onclick="four_lab_first_quest()">Решить
+            задачу</button>
         <script src="js/script.js"></script>
+        <div class="task_result" id="four_lab_first_quest_result"></div>
     </div>
     <div class="rectangle">
         <p class="lab">Задание №2</p>
-        <p class="lab">Дано трехзначное число. Вывести число, полученное при прочтении исходного числа справа налево.
-        </p>
-        <button class="button" type="button" id="two_quest" onclick="two_quest()">Решить задачу</button>
+        <p class="lab">Дано целое число N (> 0). Найти произведение 1.1 · 1.2 · 1.3 · … (N сомножителей).</p>
+        <form>
+            <label class="lab">Введите N:</label>
+            <input id="input_two_task_N" type="text">
+        </form>
+        <button class="button" type="button" id="four_lab_two_buttom" onclick="four_lab_two_quest()">Решить
+            задачу</button>
         <script src="js/script.js"></script>
+        <div class="task_result" id="four_lab_two_quest_result"></div>
     </div>
 </body>
 

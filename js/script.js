@@ -109,3 +109,46 @@ function four_task() {
             }
         }
 }
+
+function four_lab_first_quest() {
+    document.getElementById("four_lab_first_buttom").
+        onclick = function () {
+            let number = prompt("Введите число:");
+            let result = 0;
+            while (Number(number) != 0) {
+                if (Number(number) == 0 || isNaN(Number(number)) == true) {
+                    return
+                } else {
+                    if (Number(number) < 0) {
+                        result += 0;
+                        number = prompt("Введите число:");
+                    } else {
+                        result += Number(number);
+                        number = prompt("Введите число:");
+                    }
+                }
+
+            }
+            document.getElementById("four_lab_first_quest_result").textContent = "Сумма всех положительных чисел: " + result;
+        }
+}
+
+function four_lab_two_quest() {
+    document.getElementById("four_lab_two_buttom").
+        onclick = function () {
+            let N = document.getElementById("input_two_task_N");
+            let result = 1.0;
+            let multiplier = 0;
+            for (let i = 1; i < Number(N.value) + 1; i++) {
+                multiplier = 1 + i * 0.1;
+                result *= multiplier
+                document.getElementById("four_lab_two_quest_result").textContent = "Произведение : " + result;
+            }
+            return
+        }
+}
+
+function Menu() {
+    let menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
