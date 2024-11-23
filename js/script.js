@@ -115,6 +115,7 @@ function four_lab_first_quest() {
         onclick = function () {
             let number = prompt("Введите число:");
             let result = 0;
+            console.log(number);
             while (Number(number) != 0) {
                 if (Number(number) == 0 || isNaN(Number(number)) == true) {
                     return
@@ -122,14 +123,17 @@ function four_lab_first_quest() {
                     if (Number(number) < 0) {
                         result += 0;
                         number = prompt("Введите число:");
+                        console.log(number);
                     } else {
                         result += Number(number);
                         number = prompt("Введите число:");
+                        console.log(number);
                     }
                 }
 
             }
             document.getElementById("four_lab_first_quest_result").textContent = "Сумма всех положительных чисел: " + result;
+            console.log(result);
         }
 }
 
