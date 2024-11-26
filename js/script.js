@@ -162,38 +162,173 @@ let stepNow = "";
 
 let ArrayQuest = {
     1: {
+        name: "",
         text: "Увесистые ворота входа в подземелье стояли перед моим взором. Два факела по бокам навеивали на мысль, что я не первый кто сунулся сюда.",
-        img: 'img/vxod.jpeg',
+        img: ['img/vxod.jpeg'],
         next: ['2', 'Далее'],
     },
 
     2: {
+        name: "",
         text: "Но выбора у меня нет, если что договорюсь с местными обитателями, может пропустят меня с миром.",
-        img: 'img/vxod.jpeg',
+        img: ['img/vxod.jpeg'],
         next: ['3', 'Открыть ворота'],
     },
 
     3: {
+        name: "",
         text: "Уже собравшись толкнуть ворота, что то внутри меня ёкнуло и я глупо замер в паре метров от входа.",
-        img: 'img/vxod.jpeg',
+        img: ['img/vxod.jpeg'],
         next: ['4', 'Аккуратно приоткрыть дверь', "3.1", "Проигнорировать чувство"],
     },
 
     3.1: {
+        name: "Смерть",
         text: "Наплевав на чувство, я толкаю дверь и уверенно шагаю внутрь, попадая в поставленный аккурат возле двери капкан. Адская боль тут же заставила меня закричать, привлекая внимание стоящего за дверью бандита. Он избавил меня от страданий.",
-        img: 'img/trap.jpg',
+        img: ['img/trap.jpg'],
         next: ['1', 'Нет, так точно ничего не выйдет'],
     },
+
+    4: {
+        name: "",
+        text: "Доверившись чувству я аккуратно приоткрываю дверь и замечаю разложенный капкан. Интересно, кто его сюда поставил?",
+        img: ['img/trap.jpg'],
+        next: ['5', 'Обойти капкан'],
+    },
+
+    5: {
+        name: "",
+        text: "А вот и владелец капкана. Бандит, стоявший за дверью, повернулся в мою сторону и вытащил свой меч",
+        img: ['img/bandit.png'],
+        next: ['6', 'Стоять на месте'],
+    },
+
+    6: {
+        name: "Бандит",
+        text: '"Ты ошибся дверью дружок пирожок, готовься к смерти!"',
+        img: ['img/bandit.png'],
+        next: ['7', 'Ответить что то крутое в ответ'],
+    },
+
+    7: {
+        name: "Я",
+        text: '"Ещё посмотрим кто кого!"',
+        img: ['img/bandit.png'],
+        next: ['8', 'Приготовиться к бою'],
+    },
+
+    8: {
+        name: "",
+        text: 'Против меча с кулаками не лучшая затея, но и я ведь не пальцем деланный!',
+        img: ['img/fight.png'],
+        next: ['9', 'Атака (Возможна ответная атака противника)', '9.1', 'Защита (Есть шанс восстановить здоровье)'],
+    },
+
+    9: {
+        name: "Я",
+        text: 'Получай!',
+        img: ['img/ydar.png', 'img/ydar2.png'],
+        next: ['8', 'На позицию'],
+    },
+
+    9.1: {
+        name: "Бандит",
+        text: 'Подохни уже!',
+        img: ['img/block.png'],
+        next: ['8', 'Терпеть'],
+    },
+
+    10: {
+        name: "Смерть",
+        text: 'Клинок протыкает моё тело и кровь забрызгивает весь мой обзор. В последнии минуты жизни я вижу лишь ухмылку бандита, который замахивается для последнего удара.',
+        img: ['img/lose.png'],
+        next: ['1', 'Нет, так точно ничего не выйдет'],
+    },
+
+    11: {
+        name: "",
+        text: 'НОКАУТ! Бандит лежит в отключке.',
+        img: ['img/win.png'],
+        next: ['12', 'Взять меч'],
+    },
+
+    12: {
+        name: "",
+        text: 'Бандитский мечь пригодится, всяко лучше чем разбивать костяшки об лица.',
+        img: ['img/meq.png'],
+        next: ['13', 'Продолжить путь'],
+    },
+
 };
 
 function getButton(event) {
     body_novel(event.target.id);
 }
 
-
+var hp_hero = 3;
+var hp_enemy = 3;
 function Novel_buttom(step) {
     document.getElementById("Text_box").innerHTML = ArrayQuest[step]["text"];
-    document.getElementById("img_novel").src = ArrayQuest[step]["img"];
+    document.getElementById("Text_box_hp").innerHTML = "Здоровье: " + hp_hero;
+    console.log(hp_enemy)
+    if (ArrayQuest[step]["next"][0] == "1") {
+        document.getElementById("Text_box_hp").style.display = "none";
+    } else {
+        document.getElementById("Text_box_hp").style.display = "block";
+    }
+    if (ArrayQuest[step]["next"][1] != "На позицию" && hp_enemy > 0) {
+        document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
+    } else {
+        let flag = Math.floor(Math.random() * 2);
+        if (flag == 1) {
+            document.getElementById("img_novel").src = ArrayQuest[step]["img"][1];
+        } else {
+            document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
+        }
+        if (hp_hero <= 0 && ArrayQuest[step]["next"][0] == "8") {
+            ArrayQuest[step]["next"][0] = "10";
+        }
+        if (ArrayQuest[step]["next"][1] == "На позицию" && hp_enemy > 0) {
+            dmg_in_hero = (Math.floor(Math.random() * 3))
+            reverse_damage_chance = (Math.floor(Math.random() * 3))
+            dmg = (Math.floor(Math.random() * 2) + 1)
+            hp_enemy = hp_enemy - dmg;
+            if (reverse_damage_chance == 1) {
+                hp_hero = hp_hero - dmg_in_hero;
+            }
+        } else if (ArrayQuest[step]["next"][0] == "8") {
+            ArrayQuest[step]["next"][0] = "11";
+        };
+        document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
+    }
+
+    if (ArrayQuest[step]["next"][1] != "Терпеть" && hp_enemy > 0) {
+        document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
+    } else {
+        enemy_dmg = Math.floor(Math.random() * 2);
+        reverse_damage_chance = (Math.floor(Math.random() * 5));
+        if (reverse_damage_chance == 4 && ArrayQuest[step]["next"][1] != "На позицию") {
+            hp_hero = hp_hero - enemy_dmg;
+            console.log(ArrayQuest[step]["next"][1])
+        } else {
+            hp_hero = hp_hero + (Math.floor(Math.random() * 2));
+        }
+    }
+
+
+    if (ArrayQuest[step]["name"].length > 0) {
+        document.getElementById("Text_box_name").style.display = "block";
+        document.getElementById("Text_box_name").innerHTML = ArrayQuest[step]["name"];
+    } else {
+        document.getElementById("Text_box_name").style.display = "none";
+    }
+    if (ArrayQuest[step]["name"][0] == "Я") {
+        document.getElementById("Text_box_name").style.color = "#19ff00";
+    } else {
+        document.getElementById("Text_box_name").style.color = "#ff0000";
+    }
+
+
     if (ArrayQuest[step]["next"].length == 2) {
         document.getElementById("Novel_buttom_2").style.display = "none";
 
