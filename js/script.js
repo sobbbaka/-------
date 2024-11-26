@@ -156,3 +156,72 @@ function Menu() {
     let menu = document.getElementById('menu');
     menu.classList.toggle('active');
 }
+
+
+let stepNow = "";
+
+let ArrayQuest = {
+    1: {
+        text: "Увесистые ворота входа в подземелье стояли перед моим взором. Два факела по бокам навеивали на мысль, что я не первый кто сунулся сюда.",
+        img: 'img/vxod.jpeg',
+        next: ['2', 'Далее'],
+    },
+
+    2: {
+        text: "Но выбора у меня нет, если что договорюсь с местными обитателями, может пропустят меня с миром.",
+        img: 'img/vxod.jpeg',
+        next: ['3', 'Открыть ворота'],
+    },
+
+    3: {
+        text: "Уже собравшись толкнуть ворота, что то внутри меня ёкнуло и я глупо замер в паре метров от входа.",
+        img: 'img/vxod.jpeg',
+        next: ['4', 'Аккуратно приоткрыть дверь', "3.1", "Проигнорировать чувство"],
+    },
+
+    3.1: {
+        text: "Наплевав на чувство, я толкаю дверь и уверенно шагаю внутрь, попадая в поставленный аккурат возле двери капкан. Адская боль тут же заставила меня закричать, привлекая внимание стоящего за дверью бандита. Он избавил меня от страданий.",
+        img: 'img/trap.jpg',
+        next: ['1', 'Нет, так точно ничего не выйдет'],
+    },
+};
+
+function getButton(event) {
+    body_novel(event.target.id);
+}
+
+
+function Novel_buttom(step) {
+    document.getElementById("Text_box").innerHTML = ArrayQuest[step]["text"];
+    document.getElementById("img_novel").src = ArrayQuest[step]["img"];
+    if (ArrayQuest[step]["next"].length == 2) {
+        document.getElementById("Novel_buttom_2").style.display = "none";
+
+        document.getElementById("Novel_buttom_1").textContent =
+            ArrayQuest[step]["next"][1];
+    } else {
+        if (ArrayQuest[step]["next"].length == 4) {
+            document.getElementById("Novel_buttom_2").style.display = "block";
+
+            document.getElementById("Novel_buttom_1").textContent =
+                ArrayQuest[step]["next"][1];
+            document.getElementById("Novel_buttom_2").textContent =
+                ArrayQuest[step]["next"][3];
+        }
+    }
+}
+
+function body_novel(idButton) {
+    if (idButton == "Novel_buttom_1") {
+        if (stepNow == "") {
+            stepNow = "1";
+        } else {
+            stepNow = ArrayQuest[stepNow]["next"][0];
+        }
+    } else {
+        if (idButton == "Novel_buttom_2") {
+            stepNow = ArrayQuest[stepNow]["next"][2];
+        }
+    }
+    Novel_buttom(stepNow);
+}
