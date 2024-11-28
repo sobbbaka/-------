@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>Laba 2 Levakov</title>
+    <title>Laba 6 Levakov</title>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,20 +29,17 @@
 </nav>
 
 <body>
-    <h1>Лабороторная работа №2</h1>
-    <div class="rectangle">
-        <p class="lab">Задание №1</p>
-        <p class="lab">Даны катеты прямоугольного треугольника a и b. Найти его гипотенузу c и периметр P.</p>
-        <button class="button" type="button" id="first_buttom" onclick="first_quest()">Решить задачу</button>
-        <script src="js/script.js"></script>
+    <h1>Лабороторная работа №6</h1>
+    <div class="search">
+        <input type="text" id="search_bar" placeholder="Что ищем?" />
+        <button class="button" id="search_button">Поиск</button>
+        <button class="drop_button" id="drop_button">Очистить</button>
     </div>
-    <div class="rectangle">
-        <p class="lab">Задание №2</p>
-        <p class="lab">Дано трехзначное число. Вывести число, полученное при прочтении исходного числа справа налево.
-        </p>
-        <button class="button" type="button" id="two_quest" onclick="two_quest()">Решить задачу</button>
-        <script src="js/script.js"></script>
+    <div id="products_container" class="solo_card"></div>
+    <div class="card_sale_fix">
+        <div class="card_sale" id="product"></div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 <footer>

@@ -8,7 +8,6 @@ body {
     flex-direction: column;
     align-items: center;
     background-image: url(img/Slide\ 16_9\ -\ 1.svg);
-    background-size: cover;
 }
 
 .body_novel {
@@ -190,6 +189,54 @@ footer {
     padding: 25px;
 }
 
+
+.search {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border: 3px solid;
+    background-color: #933257;
+}
+
+.drop_button {
+    display: none;
+    padding: 10px;
+    border-radius: 40px 40px 40px 40px;
+    font-family: Monstserrat;
+}
+
+.text_card {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: Monstserrat;
+    text-align: center;
+}
+
+.card_sale {
+    display: flex;
+    gap: 70px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 50px;
+
+}
+
+.card_sale div {
+    border: 3px solid;
+    padding: 15px;
+    background-color: #933257;
+    flex: 1;
+    border-radius: 40px 40px 40px 40px;
+    text-align: center;
+}
+
+.card_sale img {
+    border-radius: 8px;
+}
+
+.card_sale_fix {
+    padding-bottom: 50px;
+}
 
 
 

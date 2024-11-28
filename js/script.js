@@ -270,7 +270,6 @@ var hp_enemy = 3;
 function Novel_buttom(step) {
     document.getElementById("Text_box").innerHTML = ArrayQuest[step]["text"];
     document.getElementById("Text_box_hp").innerHTML = "Здоровье: " + hp_hero;
-    console.log(hp_enemy)
     if (ArrayQuest[step]["next"][0] == "1") {
         document.getElementById("Text_box_hp").style.display = "none";
     } else {
@@ -285,8 +284,15 @@ function Novel_buttom(step) {
         } else {
             document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
         }
+        console.log(hp_hero)
+        console.log(hp_enemy)
         if (hp_hero <= 0 && ArrayQuest[step]["next"][0] == "8") {
             ArrayQuest[step]["next"][0] = "10";
+            hp_hero = 3;
+            console.log("1")
+        } else if (hp_enemy <= 0) {
+            ArrayQuest[step]["next"][0] = "11";
+
         }
         if (ArrayQuest[step]["next"][1] == "На позицию" && hp_enemy > 0) {
             dmg_in_hero = (Math.floor(Math.random() * 3))
@@ -298,6 +304,7 @@ function Novel_buttom(step) {
             }
         } else if (ArrayQuest[step]["next"][0] == "8") {
             ArrayQuest[step]["next"][0] = "11";
+            console.log(step)
         };
         document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
     }
@@ -310,7 +317,7 @@ function Novel_buttom(step) {
         if (reverse_damage_chance == 4 && ArrayQuest[step]["next"][1] != "На позицию") {
             hp_hero = hp_hero - enemy_dmg;
             console.log(ArrayQuest[step]["next"][1])
-        } else {
+        } else if (hp_hero < 3) {
             hp_hero = hp_hero + (Math.floor(Math.random() * 2));
         }
     }
@@ -360,3 +367,55 @@ function body_novel(idButton) {
     }
     Novel_buttom(stepNow);
 }
+
+
+fetch('https://dummyjson.com/products?limit=30&skip=164')
+    .then(res => res.json())
+    .then(json => {
+        let card = document.getElementById('product');
+        let search_bar = document.getElementById('search_bar');
+        let search_button = document.getElementById('search_button');
+        let drop_button = document.getElementById('drop_button');
+        let products = json.products;
+        function display_products(products_display) {
+            card.innerHTML = '';
+            products_display.forEach(product => {
+                let productElement = document.createElement('div');
+                productElement.innerHTML = `
+          <p class="text_card">${product.title}</p>
+          <p class="text_card">${product.description}</p>
+          <p class="text_card">Price: $${product.price}</p>
+          <img src="${product.thumbnail}">
+        `;
+                card.append(productElement);
+            });
+        }
+
+        display_products(products);
+
+        if (document.getElementById('drop_button').style.display == "none") {
+            document.getElementById('search_button').style.display = "block";
+        }
+        fetch('https://dummyjson.com/products')
+            .then(res => res.json())
+            .then(json_all => {
+                let all_products = json_all.products;
+                search_button.addEventListener('click', () => {
+                    let text = search_bar.value.toLowerCase();
+                    if (text.length != 0) {
+                        document.getElementById('search_button').style.display = "none";
+                        document.getElementById('drop_button').style.display = "block";
+                        let filter = all_products.filter(product =>
+                            product.title.toLowerCase().includes(text) || product.description.toLowerCase().includes(text)
+                        );
+                        display_products(filter);
+                    }
+                });
+                drop_button.addEventListener('click', () => {
+                    document.getElementById('search_bar').value = "";
+                    document.getElementById('search_button').style.display = "block";
+                    document.getElementById('drop_button').style.display = "none";
+                    display_products(products);
+                });
+            })
+    })
