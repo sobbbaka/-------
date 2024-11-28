@@ -396,7 +396,7 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
         if (document.getElementById('drop_button').style.display == "none") {
             document.getElementById('search_button').style.display = "block";
         }
-        fetch('https://dummyjson.com/products')
+        fetch('https://dummyjson.com/products?limit=0')
             .then(res => res.json())
             .then(json_all => {
                 let all_products = json_all.products;
@@ -405,9 +405,15 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
                     if (text.length != 0) {
                         document.getElementById('search_button').style.display = "none";
                         document.getElementById('drop_button').style.display = "block";
+                        document.getElementById('sum').style.display = "block";
                         let filter = all_products.filter(product =>
                             product.title.toLowerCase().includes(text) || product.description.toLowerCase().includes(text)
                         );
+                        let filter_main = products.filter(product =>
+                            product.title.toLowerCase().includes(text) || product.description.toLowerCase().includes(text)
+                        );
+
+                        document.getElementById("sum").textContent = "Всего совпадений найдено: " + filter.length + " | " + "Совпадений из диапазона: " + filter_main.length;
                         display_products(filter);
                     }
                 });
@@ -415,6 +421,7 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
                     document.getElementById('search_bar').value = "";
                     document.getElementById('search_button').style.display = "block";
                     document.getElementById('drop_button').style.display = "none";
+                    document.getElementById('sum').style.display = "none";
                     display_products(products);
                 });
             })
