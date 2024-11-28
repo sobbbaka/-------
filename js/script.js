@@ -414,7 +414,7 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
                         );
 
                         document.getElementById("sum").textContent = "Всего совпадений найдено: " + filter.length + " | " + "Совпадений из диапазона: " + filter_main.length;
-                        display_products(filter);
+                        display_products(filter_main);
                     }
                 });
                 drop_button.addEventListener('click', () => {
@@ -426,3 +426,6 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
                 });
             })
     })
+
+
+
