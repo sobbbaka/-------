@@ -259,6 +259,168 @@ let ArrayQuest = {
         next: ['13', 'Продолжить путь'],
     },
 
+    13: {
+        name: "",
+        text: 'Следующая комната представляла собой зал с водопадом, текущим откуда то сверху. Лестницы наверх нигде не виднелость, поэтому я не придумал ничего лучше как...',
+        img: ['img/voda.jpg'],
+        next: ['14', 'Поискать лестницу', '14.1', 'Телепортировать себя наверх'],
+    },
+
+    14.1: {
+        name: "",
+        text: 'Ты не умеешь телепортироваться.',
+        img: ['img/voda.jpg'],
+        next: ['14.2', 'С чего бы это?'],
+    },
+
+    14.2: {
+        name: "",
+        text: 'Ты же не серьезно сейчас? Люди не умеют телепортироваться когда захотят. Для этого нужны спец...',
+        img: ['img/voda.jpg'],
+        next: ['14.3', 'Да, да, телепортируй меня давай'],
+    },
+
+    14.3: {
+        name: "",
+        text: 'Нет.',
+        img: ['img/voda.jpg'],
+        next: ['13', 'Чёрт бы тебя побрал!'],
+    },
+
+    14: {
+        name: "",
+        text: 'Кроме кучи черепов и скелетов ты ничего не находишь.',
+        img: ['img/voda.jpg'],
+        next: ['15', 'Искать усерднее'],
+    },
+
+    15: {
+        name: "",
+        text: 'Всё ещё ничего кроме костей.',
+        img: ['img/voda.jpg'],
+        next: ['16', 'Так вот же лестница!'],
+    },
+
+    16: {
+        name: "",
+        text: 'Что? Какого х... Ладно, ты находишь лестницу и взбираешься наверх.',
+        img: ['img/voda_les.png'],
+        next: ['17', 'Другое дело'],
+    },
+
+    17: {
+        name: "",
+        text: 'Пройдя чуть вперед ты натыкаешься на четыре колонны и расположенный в центре комнаты рыгач.',
+        img: ['img/quest.jpg'],
+        next: ['18', 'Похоже это какая-то загадка'],
+    },
+
+    18: {
+        name: "",
+        text: 'Неожиданно перед тобой появляется зеленый портал и из него выходят два человека.',
+        img: ['img/quest_portal.png'],
+        next: ['19', 'В шоке стоять на месте'],
+    },
+
+    19: {
+        name: "Рик",
+        text: 'Чёрт, похоже я перепутал места, мы теперь в чёртовой визуальной новелле в браузере.',
+        img: ['img/quest_portal.png'],
+        next: ['20', 'По прежднему стоять на месте'],
+    },
+
+    20: {
+        name: "Морти",
+        text: 'О чём ты Рик? Почему мы не двигаемся? Что происходит?',
+        img: ['img/quest_portal.png'],
+        next: ['21', 'О чём он вообще?'],
+    },
+
+    21: {
+        name: "Рик",
+        text: 'Послушай Морти, мы картинки, мы двигаемся только когда двигается сюжет.',
+        img: ['img/quest_portal_talk.png'],
+        next: ['22', 'Я вот точно не картинка'],
+    },
+
+    22: {
+        name: "Морти",
+        text: 'Боже мой, и что нам теперь делать?!',
+        img: ['img/quest_portal_talk.png'],
+        next: ['23', 'Кажется пора готовиться к новой битве'],
+    },
+
+    23: {
+        name: "Рик",
+        text: 'Да не парься, эй, странно выглядящий чувак с алмазным мечом, хочешь выйти на первую концовку?',
+        img: ['img/quest_portal.png'],
+        next: ['24', 'Да ну вас, мне тут загадку решать надо', '24.1', 'Да'],
+    },
+
+    24.1: {
+        name: "Рик",
+        text: 'Вот и круто, запрыгивай с нами в портал.',
+        img: ['img/quest_portal.png'],
+        next: ['24.2', 'Прыгнуть в портал'],
+    },
+
+    24.2: {
+        name: "Первая концовка",
+        text: 'Вы учавствовали в приключениях Рика и Морти около двух серий, после чего вас бездарно и глупо слили. Такое себе.',
+        img: ['img/end_1.jpg'],
+        next: ['23', 'Кажется, всё могло закончится иначе'],
+    },
+
+
+    24: {
+        name: "Рик",
+        text: 'Поди уже прокликал её? Ладно, нажимай кнопку и решай свою тупую загадку',
+        img: ['img/quest_portal.png'],
+        next: ['25', 'Какую кнопку?'],
+    },
+
+    25: {
+        name: "",
+        text: 'Портал пропал раньше, чем он услышал твой вопрос. Пора браться за загадку.',
+        img: ['img/quest.jpg'],
+        next: ['26', 'Изучить колонны'],
+    },
+
+    26: {
+        name: "",
+        text: 'Колонны имеют по четыре рисунка с каждой стороны, видимо необходимо развернуть их в правильную комбинацию, но где её узнать?',
+        img: ['img/quest.jpg'],
+        next: ['27', 'Изучить таблички сверху'],
+    },
+
+    27: {
+        name: "",
+        text: 'На табличках нарисованы различные животные, точно такие же как на колоннах, похоже это и есть комбинация.',
+        img: ['img/quest.jpg'],
+        next: ['28', 'Как то слишком легко, тебе не кажется?'],
+    },
+
+    28: {
+        name: "",
+        text: 'Может и кажется, думаешь создатели этого места так просто дали бы ответ на свою загадку? Мне по большей части без разницы, так что выбирай сам.',
+        img: ['img/quest.jpg'],
+        next: ['28.1', 'Повернуть колонны согласно весячим табличкам и дёрнуть рычаг', '29', 'Дёрнуть рычаг просто так'],
+    },
+
+    28.1: {
+        name: "Смерть",
+        text: 'Развернув последнюю колонну и дёрнув за рычаг ты слышишь скрежет механизмов, после чего комнату наполняет едкий газ.',
+        img: ['img/quest_smoke.png'],
+        next: ['1', 'Нет, так точно ничего не выйдет'],
+    },
+
+    29: {
+        name: "",
+        text: 'Послышался скрип и через пару мгновений ворота открылись.',
+        img: ['img/quest.jpg'],
+        next: ['30', 'Идти дальше'],
+    },
+
 };
 
 function getButton(event) {
@@ -266,10 +428,17 @@ function getButton(event) {
 }
 
 var hp_hero = 3;
-var hp_enemy = 3;
+var hp_enemy = 1;
 function Novel_buttom(step) {
+    console.log(step)
     document.getElementById("Text_box").innerHTML = ArrayQuest[step]["text"];
-    document.getElementById("Text_box_hp").innerHTML = "Здоровье: " + hp_hero;
+    if (ArrayQuest[step]["next"][1] == "Атака (Возможна ответная атака противника)") {
+        document.getElementById("Text_box_hp").style.display = "block";
+        document.getElementById("Text_box_hp").innerHTML = "Здоровье: " + hp_hero;
+    }
+    if (ArrayQuest[step]["next"][0] == "12") {
+        document.getElementById("Text_box_hp").innerHTML = " ";
+    }
     if (ArrayQuest[step]["next"][0] == "1") {
         document.getElementById("Text_box_hp").style.display = "none";
     } else {
@@ -284,15 +453,9 @@ function Novel_buttom(step) {
         } else {
             document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
         }
-        console.log(hp_hero)
-        console.log(hp_enemy)
         if (hp_hero <= 0 && ArrayQuest[step]["next"][0] == "8") {
             ArrayQuest[step]["next"][0] = "10";
             hp_hero = 3;
-            console.log("1")
-        } else if (hp_enemy <= 0) {
-            ArrayQuest[step]["next"][0] = "11";
-
         }
         if (ArrayQuest[step]["next"][1] == "На позицию" && hp_enemy > 0) {
             dmg_in_hero = (Math.floor(Math.random() * 3))
@@ -304,8 +467,10 @@ function Novel_buttom(step) {
             }
         } else if (ArrayQuest[step]["next"][0] == "8") {
             ArrayQuest[step]["next"][0] = "11";
-            console.log(step)
         };
+        if (ArrayQuest[step]["next"][1] == "Продолжить путь") {
+            hp_enemy += 3;
+        }
         document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
     }
 
@@ -316,7 +481,6 @@ function Novel_buttom(step) {
         reverse_damage_chance = (Math.floor(Math.random() * 5));
         if (reverse_damage_chance == 4 && ArrayQuest[step]["next"][1] != "На позицию") {
             hp_hero = hp_hero - enemy_dmg;
-            console.log(ArrayQuest[step]["next"][1])
         } else if (hp_hero < 3) {
             hp_hero = hp_hero + (Math.floor(Math.random() * 2));
         }
@@ -326,14 +490,25 @@ function Novel_buttom(step) {
     if (ArrayQuest[step]["name"].length > 0) {
         document.getElementById("Text_box_name").style.display = "block";
         document.getElementById("Text_box_name").innerHTML = ArrayQuest[step]["name"];
+        if (ArrayQuest[step]["name"] == "Я") {
+            document.getElementById("Text_box_name").style.color = "#19ff00";
+        } else if (ArrayQuest[step]["name"] == "Бандит" || ArrayQuest[step]["name"] == "Смерть") {
+            document.getElementById("Text_box_name").style.color = "#ff0000";
+        } else if (ArrayQuest[step]["name"] == "Рик") {
+            document.getElementById("Text_box_name").style.color = "#30d5c8";
+        } else if (ArrayQuest[step]["name"] == "Морти") {
+            document.getElementById("Text_box_name").style.color = "#fde910";
+        } else if (ArrayQuest[step]["name"] == "Первая концовка") {
+            document.getElementById("Text_box_name").style.color = "#ffd700";
+        }
+        else if (ArrayQuest[step]["name"] == "Морти") {
+            document.getElementById("Text_box_name").style.color = "#fde910";
+        }
     } else {
         document.getElementById("Text_box_name").style.display = "none";
     }
-    if (ArrayQuest[step]["name"][0] == "Я") {
-        document.getElementById("Text_box_name").style.color = "#19ff00";
-    } else {
-        document.getElementById("Text_box_name").style.color = "#ff0000";
-    }
+
+
 
 
     if (ArrayQuest[step]["next"].length == 2) {
