@@ -198,21 +198,21 @@ let ArrayQuest = {
 
     5: {
         name: "",
-        text: "А вот и владелец капкана. Бандит, стоявший за дверью, повернулся в мою сторону и вытащил свой меч",
+        text: "А вот и владелец капкана. Бандит, стоявший за дверью, повернулся в мою сторону и вытащил свой меч.",
         img: ['img/bandit.png'],
         next: ['6', 'Стоять на месте'],
     },
 
     6: {
         name: "Бандит",
-        text: '"Ты ошибся дверью дружок пирожок, готовься к смерти!"',
+        text: 'Ты ошибся дверью дружок пирожок, готовься к смерти!',
         img: ['img/bandit.png'],
         next: ['7', 'Ответить что то крутое в ответ'],
     },
 
     7: {
         name: "Я",
-        text: '"Ещё посмотрим кто кого!"',
+        text: 'Ещё посмотрим кто кого!',
         img: ['img/bandit.png'],
         next: ['8', 'Приготовиться к бою'],
     },
@@ -374,7 +374,7 @@ let ArrayQuest = {
 
     24: {
         name: "Рик",
-        text: 'Поди уже прокликал её? Ладно, нажимай кнопку и решай свою тупую загадку',
+        text: 'Поди уже открыл её, а? Ладно, нажимай на кнопку и решай свою тупую загадку.',
         img: ['img/quest_portal.png'],
         next: ['25', 'Какую кнопку?'],
     },
@@ -388,7 +388,7 @@ let ArrayQuest = {
 
     26: {
         name: "",
-        text: 'Колонны имеют по четыре рисунка с каждой стороны, видимо необходимо развернуть их в правильную комбинацию, но где её узнать?',
+        text: 'Колонны имеют по четыре рисунка с каждой стороны, видимо необходимо развернуть их в правильную комбинацию.',
         img: ['img/quest.jpg'],
         next: ['27', 'Изучить таблички сверху'],
     },
@@ -421,6 +421,119 @@ let ArrayQuest = {
         next: ['30', 'Идти дальше'],
     },
 
+    30: {
+        name: "",
+        text: 'Ещё одна комната, но на этот раз двери куда то ещё не было. Похоже конец, значит кулон где-то тут.',
+        img: ['img/after_quest.jpg'],
+        next: ['30.1', 'Изучить статую', '31', 'Изучить ящик для украшений'],
+    },
+
+    30.1: {
+        name: "",
+        text: 'Огромная статуя какого-то человекоподобного механизма. Надеюсь всё же декоративная.',
+        img: ['img/after_quest_robot.png'],
+        next: ['30.2', 'Дотронуться до неё', '30', 'Отойти от статуи'],
+    },
+
+    30.2: {
+        name: "",
+        text: 'Ты аккуратно касаешься статуи. Ничего не происходит.',
+        img: ['img/after_quest_robot.png'],
+        next: ['30', 'Оставить статую в покое'],
+    },
+
+    31: {
+        name: "",
+        text: 'За стеклом лежит кулон. Он полностью совпадает с тем, что был в заказе.',
+        img: ['img/after_quest_chest.png'],
+        next: ['31.1', 'Попытаться разбить стекло мечом', '30', 'Отойти от ящика'],
+    },
+
+    31.1: {
+        name: "",
+        text: 'Сильный удар мечом не дал никакого эффекта. На стекле даже царапины не осталось.',
+        img: ['img/after_quest_chest.png'],
+        next: ['30', 'Оставить ящик в покое'],
+    },
+
+    32: {
+        name: "",
+        text: 'Неожиданно твоё внимание привлекает некое устройство с кнопочками на столе. Ты подходишь к нему и берешь его в руки.',
+        img: ['img/after_quest.jpg'],
+        next: ['33', 'Далее'],
+    },
+
+    33: {
+        name: "",
+        text: 'Странный механизм с кнопочками.',
+        img: ['img/term.png'],
+        next: ['33.1', 'Нажать случайную кнопку', '34', 'Нажать случайную кнопку'],
+    },
+
+    33.1: {
+        name: "",
+        text: 'После нажатия стекло, защищающее кулон, сдвинулось в сторону.',
+        img: ['img/term.png'],
+        next: ['33.2', 'Схватить кулон'],
+    },
+
+    33.2: {
+        name: "",
+        text: 'Вот и он, задание выполнено, пора сматываться отсюда.',
+        img: ['img/kylon.png'],
+        next: ['33.3', 'Бежать к выходу'],
+    },
+
+    33.3: {
+        name: "",
+        text: 'Оказавшись в комнате с водой, кулон неожиданно заговорил.',
+        img: ['img/voda_les.png'],
+        next: ['33.4', 'Достать его'],
+    },
+
+    33.4: {
+        name: "Кулон",
+        text: 'Постой, не отдавай меня заказчику. При помощи меня он уничтожит весь мир!',
+        img: ['img/voda_les_kylon.png'],
+        next: ['33.5', 'С чего мне тебе верить?'],
+    },
+
+    33.5: {
+        name: "Кулон",
+        text: 'Хочешь я тебя озолочу? Будешь самым богатым человеком на планете! Только не отдавай меня ему!',
+        img: ['img/voda_les_kylon.png'],
+        next: ['33.6', 'Согласиться', '33.7', 'Отказаться'],
+    },
+
+    33.6: {
+        name: "Вторая концовка",
+        text: 'Кулон неожиданно начал выплевывать из себя золотые монеты, да в таком большом количестве, что они быстро заполнили комнату. Выбросив кулон и набив карманы до отказа ты быстро покидаешь подземелье.',
+        img: ['img/end_2.png'],
+        next: ['33', 'Кажется я не все кнопки на том терминале нажал'],
+    },
+
+    33.7: {
+        name: "Смерть",
+        text: 'Насильно засунув кулон обратно в карман ты продолжил идти, пока резкая боль в сердце не свалила тебя на землю. Неожиданная остановка сердца, кто бы мог подумать?',
+        img: ['img/death_hearth.png'],
+        next: ['1', 'Нет, так точно ничего не выйдет'],
+    },
+
+    34: {
+        name: "",
+        text: 'Статуя робота неожиданно зашевелилась.',
+        img: ['img/after_quest.jpg'],
+        next: ['35', 'Пора делать ноги!'],
+    },
+
+    35: {
+        name: "Третья концовка",
+        text: 'Выпущенный на свободу робот ещё долго терроризировал окрестности, убивая каждого на своём пути. А что касается тебя, то никто и никогда больше не давал тебе никакую работу.',
+        img: ['img/robot.jpg'],
+        next: ['33', 'Кажется я не все кнопки на том терминале нажал'],
+    },
+
+
 };
 
 function getButton(event) {
@@ -429,8 +542,9 @@ function getButton(event) {
 
 var hp_hero = 3;
 var hp_enemy = 1;
+flag = 0;
+flag_one = 0;
 function Novel_buttom(step) {
-    console.log(step)
     document.getElementById("Text_box").innerHTML = ArrayQuest[step]["text"];
     if (ArrayQuest[step]["next"][1] == "Атака (Возможна ответная атака противника)") {
         document.getElementById("Text_box_hp").style.display = "block";
@@ -486,6 +600,17 @@ function Novel_buttom(step) {
         }
     }
 
+    if (ArrayQuest[step]["next"][1] == "Оставить ящик в покое") {
+        flag += 1;
+    }
+
+    if (ArrayQuest[step]["next"][1] == "Оставить статую в покое") {
+        flag_one += 1;
+    }
+    if (flag >= 1 && flag_one >= 1 && (ArrayQuest[step]["next"][1] == "Изучить статую" || ArrayQuest[step]["next"][1] == "Изучить ящик для украшений")) {
+        ArrayQuest[step]["next"][0] = "32";
+    }
+
 
     if (ArrayQuest[step]["name"].length > 0) {
         document.getElementById("Text_box_name").style.display = "block";
@@ -498,15 +623,39 @@ function Novel_buttom(step) {
             document.getElementById("Text_box_name").style.color = "#30d5c8";
         } else if (ArrayQuest[step]["name"] == "Морти") {
             document.getElementById("Text_box_name").style.color = "#fde910";
-        } else if (ArrayQuest[step]["name"] == "Первая концовка") {
+        } else if (ArrayQuest[step]["name"] == "Первая концовка" || ArrayQuest[step]["name"] == "Вторая концовка" || ArrayQuest[step]["name"] == "Третья концовка") {
             document.getElementById("Text_box_name").style.color = "#ffd700";
-        }
-        else if (ArrayQuest[step]["name"] == "Морти") {
-            document.getElementById("Text_box_name").style.color = "#fde910";
+        } else if (ArrayQuest[step]["name"] == "Кулон") {
+            document.getElementById("Text_box_name").style.color = "#30d5c8";
         }
     } else {
         document.getElementById("Text_box_name").style.display = "none";
     }
+
+
+    if (ArrayQuest[step]["name"] == "Смерть") {
+        music_death = new Audio("img/death.mp3")
+        music_death.play();
+    }
+    if (ArrayQuest[step]["next"][0] == "7") {
+        console.log(ArrayQuest[step]["next"][0])
+        music_fight = new Audio("img/fight.mp3")
+        music_fight.play();
+    }
+    if (ArrayQuest[step]["next"][1] == "На позицию") {
+        music_hit = new Audio("img/hit.mp3")
+        music_hit.play();
+    }
+
+    if (ArrayQuest[step]["next"][0] == "12") {
+        music_fight.pause()
+    }
+
+    if (ArrayQuest[step]["name"] == "Первая концовка" || ArrayQuest[step]["name"] == "Вторая концовка" || ArrayQuest[step]["name"] == "Третья концовка") {
+        music_win = new Audio("img/end.mp3")
+        music_win.play();
+    }
+
 
 
 
