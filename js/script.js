@@ -561,8 +561,8 @@ function Novel_buttom(step) {
     if (ArrayQuest[step]["next"][1] != "На позицию" && hp_enemy > 0) {
         document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
     } else {
-        let flag = Math.floor(Math.random() * 2);
-        if (flag == 1) {
+        let hand = Math.floor(Math.random() * 2);
+        if (hand == 1) {
             document.getElementById("img_novel").src = ArrayQuest[step]["img"][1];
         } else {
             document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
