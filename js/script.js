@@ -585,7 +585,6 @@ function Novel_buttom(step) {
         if (ArrayQuest[step]["next"][1] == "Продолжить путь") {
             hp_enemy += 3;
         }
-        document.getElementById("img_novel").src = ArrayQuest[step]["img"][0];
     }
 
     if (ArrayQuest[step]["next"][1] != "Терпеть" && hp_enemy > 0) {
