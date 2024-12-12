@@ -11,7 +11,6 @@ fetch('https://dummyjson.com/products?limit=0')
             products_display.forEach(product => {
                 let productElement = document.createElement('div');
                 productElement.innerHTML = `
-          <p id="id_card" class="id_card">${product.id}</p>
           <p class="text_card">${product.title}</p>
           <p class="text_card">${product.description}</p>
           <p class="text_card">Price: $${product.price}</p>
@@ -30,7 +29,6 @@ fetch('https://dummyjson.com/products?limit=0')
             .then(res => res.json())
             .then(json_all => {
                 let all_products = json_all.products;
-                console.log(all_products.slice(-1))
                 search_button.addEventListener('click', () => {
                     let text = search_bar.value.toLowerCase();
                     if (text.length != 0) {
@@ -95,33 +93,66 @@ function SoloCardHide() {
 
 
 function AddCard() {
-    onclick = function () {
-        document.getElementById('new_card_main').style.display = "block";
-        document.getElementById('new_card_main').style.position = "fixed";
-        document.body.style.overflow = "hidden";
-        document.body.style.userSelect = "none";
-    }
+    document.getElementById('new_card_main').style.display = "block";
+    document.getElementById('new_card_main').style.position = "fixed";
+    document.body.style.overflow = "hidden";
+    document.body.style.userSelect = "none";
 }
 
-function HideNew() {
-    onclick = function () {
-        document.getElementById('new_card_main').style.display = "none";
-        document.getElementById('new_card_main').style.position = "absolute";
-        document.body.style.overflow = "auto";
-        document.body.style.userSelect = "auto";
-        fetch('https://dummyjson.com/products/add', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                title: String(document.getElementById("name_product").value),
-                description: String(document.getElementById("description_product").value),
-                price: String(document.getElementById("cost_product").value),
-            })
-        })
-            .then(res => res.json())
-            .then(new_json => {
-                let new_product = new_json.product
 
-            });
-    }
+let outsideProduct;
+
+function HideNew() {
+    fetch('https://dummyjson.com/products/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            title: document.getElementById("name_product").value,
+            description: document.getElementById("description_product").value,
+            price: document.getElementById("cost_product").value,
+        })
+    })
+        .then(res => res.json())
+        .then((createdProduct) => {
+            outsideProduct = createdProduct;
+            console.log(createdProduct)
+            let new_card_solo = document.getElementById('new_product');
+            let new_solo_productElement = document.createElement('div');
+            new_solo_productElement.innerHTML = `
+                    <p class="text_card">${createdProduct.title}</p>
+                    <p class="text_card">${createdProduct.description}</p>
+                    <p class="text_card">Price: $${createdProduct.price}</p>
+                    <button type="button" class="card_button" id="${createdProduct.id}" onclick="NewCard()">Просмотр</button>
+                  `;
+            new_card_solo.append(new_solo_productElement);
+            document.getElementById('new_card_main').style.display = "none";
+            document.getElementById('new_card_main').style.position = "absolute";
+            document.body.style.overflow = "auto";
+            document.body.style.userSelect = "auto";
+        })
+}
+
+function NewCard() {
+    document.getElementById('new_solo_card').style.display = "block";
+    document.getElementById('new_solo_card').style.position = "fixed";
+    document.body.style.overflow = "hidden";
+    document.body.style.userSelect = "none";
+    let new_card = document.getElementById('new_product_disp');
+    new_card.innerHTML = '';
+    let new_productElement = document.createElement('div');
+    new_productElement.innerHTML = `
+    <p class="text_card">${outsideProduct.title}</p>
+    <p class="text_card">${outsideProduct.description}</p>
+    <p class="text_card">Price: $${outsideProduct.price}</p>
+    <button type="button" class="card_button" id="card_button" onclick="NewCardHide()">Закрыть</button>
+  `;
+    new_card.append(new_productElement);
+
+};
+
+function NewCardHide() {
+    document.getElementById('new_solo_card').style.display = "none";
+    document.getElementById('new_solo_card').style.position = "absolute";
+    document.body.style.overflow = "auto";
+    document.body.style.userSelect = "auto";
 }
