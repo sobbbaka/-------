@@ -637,7 +637,6 @@ function Novel_buttom(step) {
         music_death.play();
     }
     if (ArrayQuest[step]["next"][0] == "7") {
-        console.log(ArrayQuest[step]["next"][0])
         music_fight = new Audio("img/fight.mp3")
         music_fight.play();
     }
@@ -656,22 +655,15 @@ function Novel_buttom(step) {
     }
 
 
-
-
-
     if (ArrayQuest[step]["next"].length == 2) {
         document.getElementById("Novel_buttom_2").style.display = "none";
-
         document.getElementById("Novel_buttom_1").textContent =
             ArrayQuest[step]["next"][1];
     } else {
         if (ArrayQuest[step]["next"].length == 4) {
             document.getElementById("Novel_buttom_2").style.display = "block";
-
-            document.getElementById("Novel_buttom_1").textContent =
-                ArrayQuest[step]["next"][1];
-            document.getElementById("Novel_buttom_2").textContent =
-                ArrayQuest[step]["next"][3];
+            document.getElementById("Novel_buttom_1").textContent = ArrayQuest[step]["next"][1];
+            document.getElementById("Novel_buttom_2").textContent = ArrayQuest[step]["next"][3];
         }
     }
 }
@@ -709,11 +701,11 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
           <p class="text_card">${product.description}</p>
           <p class="text_card">Price: $${product.price}</p>
           <img src="${product.thumbnail}">
+          <button type="button" class="card_button" id="${product.id - 1}" onclick="SoloCardDisplay(this.id)">Просмотр</button>
         `;
                 card.append(productElement);
             });
         }
-
         display_products(products);
 
         if (document.getElementById('drop_button').style.display == "none") {
@@ -750,5 +742,103 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
             })
     })
 
+function SoloCardDisplay(i) {
+    onclick = function () {
+        fetch('https://dummyjson.com/products?limit=0')
+            .then(res => res.json())
+            .then(solo_json => {
+                let card_solo = document.getElementById('solo_product');
+                let one_product = solo_json.products;
+                card_solo.innerHTML = '';
+                let solo_productElement = document.createElement('div');
+                solo_productElement.innerHTML = `
+                    <p class="text_card">${one_product[i].title}</p>
+                    <p class="text_card">${one_product[i].description}</p>
+                    <p class="text_card">Price: $${one_product[i].price}</p>
+                    <img src="${one_product[i].thumbnail}">
+                    <button type="button" class="card_button" id="card_button" onclick="SoloCardHide()">Закрыть</button>
+                  `;
+                card_solo.append(solo_productElement);
+            })
+        document.getElementById('solo_card').style.display = "block";
+        document.getElementById('solo_card').style.position = "fixed";
+        document.body.style.overflow = "hidden";
+        document.body.style.userSelect = "none";
+    }
+}
 
 
+function SoloCardHide() {
+    onclick = function () {
+        document.getElementById('solo_card').style.display = "none";
+        document.getElementById('solo_card').style.position = "absolute";
+        document.body.style.overflow = "auto";
+        document.body.style.userSelect = "auto";
+    }
+}
+
+
+function AddCard() {
+    document.getElementById('new_card_main').style.display = "block";
+    document.getElementById('new_card_main').style.position = "fixed";
+    document.body.style.overflow = "hidden";
+    document.body.style.userSelect = "none";
+}
+
+
+let outsideProduct;
+
+function HideNew() {
+    fetch('https://dummyjson.com/products/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            title: document.getElementById("name_product").value,
+            description: document.getElementById("description_product").value,
+            price: document.getElementById("cost_product").value,
+        })
+    })
+        .then(res => res.json())
+        .then((createdProduct) => {
+            outsideProduct = createdProduct;
+            console.log(createdProduct)
+            let new_card_solo = document.getElementById('new_product');
+            let new_solo_productElement = document.createElement('div');
+            new_solo_productElement.innerHTML = `
+                    <p class="text_card">${createdProduct.title}</p>
+                    <p class="text_card">${createdProduct.description}</p>
+                    <p class="text_card">Price: $${createdProduct.price}</p>
+                    <button type="button" class="card_button" id="${createdProduct.id}" onclick="NewCard()">Просмотр</button>
+                  `;
+            new_card_solo.append(new_solo_productElement);
+            document.getElementById('new_card_main').style.display = "none";
+            document.getElementById('new_card_main').style.position = "absolute";
+            document.body.style.overflow = "auto";
+            document.body.style.userSelect = "auto";
+        })
+}
+
+function NewCard() {
+    document.getElementById('new_solo_card').style.display = "block";
+    document.getElementById('new_solo_card').style.position = "fixed";
+    document.body.style.overflow = "hidden";
+    document.body.style.userSelect = "none";
+    let new_card = document.getElementById('new_product_disp');
+    new_card.innerHTML = '';
+    let new_productElement = document.createElement('div');
+    new_productElement.innerHTML = `
+    <p class="text_card">${outsideProduct.title}</p>
+    <p class="text_card">${outsideProduct.description}</p>
+    <p class="text_card">Price: $${outsideProduct.price}</p>
+    <button type="button" class="card_button" id="card_button" onclick="NewCardHide()">Закрыть</button>
+  `;
+    new_card.append(new_productElement);
+
+};
+
+function NewCardHide() {
+    document.getElementById('new_solo_card').style.display = "none";
+    document.getElementById('new_solo_card').style.position = "absolute";
+    document.body.style.overflow = "auto";
+    document.body.style.userSelect = "auto";
+}
