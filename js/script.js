@@ -800,7 +800,6 @@ function HideNew() {
         .then(res => res.json())
         .then((createdProduct) => {
             outsideProduct = createdProduct;
-            console.log(createdProduct)
             let new_card_solo = document.getElementById('new_product');
             let new_solo_productElement = document.createElement('div');
             new_solo_productElement.innerHTML = `
