@@ -698,7 +698,6 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
                 let productElement = document.createElement('div');
                 productElement.innerHTML = `
           <p class="text_card">${product.title}</p>
-          <p class="text_card">${product.description}</p>
           <p class="text_card">Price: $${product.price}</p>
           <img src="${product.thumbnail}">
           <button type="button" class="card_button" id="${product.id - 1}" onclick="SoloCardDisplay(this.id)">Просмотр</button>
@@ -806,7 +805,6 @@ function HideNew() {
             let new_solo_productElement = document.createElement('div');
             new_solo_productElement.innerHTML = `
                     <p class="text_card">${createdProduct.title}</p>
-                    <p class="text_card">${createdProduct.description}</p>
                     <p class="text_card">Price: $${createdProduct.price}</p>
                     <button type="button" class="card_button" id="${createdProduct.id}" onclick="NewCard()">Просмотр</button>
                   `;

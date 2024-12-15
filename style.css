@@ -231,6 +231,27 @@ footer {
     text-align: center;
 }
 
+.card_sale_new {
+    display: flex;
+    gap: 70px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+
+.card_sale_new div {
+    border: 3px solid;
+    padding: 15px;
+    background-color: #933257;
+    border-radius: 40px 40px 40px 40px;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 .card_sale {
     display: flex;
     gap: 70px;
@@ -244,7 +265,6 @@ footer {
     border: 3px solid;
     padding: 15px;
     background-color: #933257;
-    flex: 1;
     border-radius: 40px 40px 40px 40px;
     text-align: center;
     gap: 10px;
@@ -292,9 +312,6 @@ footer {
     display: none;
 }
 
-.card_sale_solo {
-    padding: 100px;
-}
 
 
 .id_card {
