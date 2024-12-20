@@ -785,6 +785,8 @@ function AddCard() {
 }
 
 
+
+
 let outsideProduct;
 
 function HideNew() {
@@ -799,12 +801,14 @@ function HideNew() {
     })
         .then(res => res.json())
         .then((createdProduct) => {
+            console.log(document.getElementById("img_product").files[0]["name"])
             outsideProduct = createdProduct;
             let new_card_solo = document.getElementById('new_product');
             let new_solo_productElement = document.createElement('div');
             new_solo_productElement.innerHTML = `
                     <p class="text_card">${createdProduct.title}</p>
                     <p class="text_card">Price: $${createdProduct.price}</p>
+                    <img class="new_photo" src="img/${document.getElementById("img_product").files[0]["name"]}">
                     <button type="button" class="card_button" id="${createdProduct.id}" onclick="NewCard()">Просмотр</button>
                   `;
             new_card_solo.append(new_solo_productElement);
@@ -827,6 +831,7 @@ function NewCard() {
     <p class="text_card">${outsideProduct.title}</p>
     <p class="text_card">${outsideProduct.description}</p>
     <p class="text_card">Price: $${outsideProduct.price}</p>
+    <img class="new_photo" src="img/${document.getElementById("img_product").files[0]["name"]}">
     <button type="button" class="card_button" id="card_button" onclick="NewCardHide()">Закрыть</button>
   `;
     new_card.append(new_productElement);

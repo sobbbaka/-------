@@ -327,6 +327,11 @@ footer {
     display: none;
 }
 
+.new_photo {
+    width: 400px;
+    height: 400px;
+}
+
 .new_card {
     border: 3px solid;
     padding: 15px;
