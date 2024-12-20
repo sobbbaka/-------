@@ -801,7 +801,6 @@ function HideNew() {
     })
         .then(res => res.json())
         .then((createdProduct) => {
-            console.log(document.getElementById("img_product").files[0]["name"])
             outsideProduct = createdProduct;
             let new_card_solo = document.getElementById('new_product');
             let new_solo_productElement = document.createElement('div');
