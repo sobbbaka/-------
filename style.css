@@ -76,6 +76,13 @@ h1 {
     font-size: 18px;
 }
 
+.button_filter {
+    padding: 10px;
+    border-radius: 40px 40px 40px 40px;
+    font-family: Monstserrat;
+    font-size: 18px;
+}
+
 .button_2 {
     padding: 10px;
     border-radius: 40px 40px 40px 40px;
@@ -494,6 +501,42 @@ footer {
         border-radius: 40px 40px 40px 40px;
         font-family: Monstserrat;
         font-size: 12px;
+    }
+
+    .name_collection {
+        background-color: #933257;
+        color: #FFFFFF;
+        font-family: Monstserrat;
+        font-size: 20px;
+    }
+
+    .top_filter {
+        border-radius: 20px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        background-color: #933257;
+        border: 3px solid;
+    }
+
+    .filter {
+        padding-top: 15px;
+        display: flex;
+        gap: 1px;
+    }
+
+    .filter_by {
+        background-color: #933257;
+        color: #FFFFFF;
+        font-family: Monstserrat;
+        font-size: 15px;
+    }
+
+    .button_filter {
+        padding: 0px;
+        border-radius: 40px 40px 40px 40px;
+        font-family: Monstserrat;
+        font-size: 8px;
     }
 
 }
