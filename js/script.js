@@ -697,9 +697,9 @@ fetch('https://dummyjson.com/products?limit=30&skip=164')
             products_display.forEach(product => {
                 let productElement = document.createElement('div');
                 productElement.innerHTML = `
+          <img src="${product.thumbnail}">
           <p class="text_card">${product.title}</p>
           <p class="text_card">Price: $${product.price}</p>
-          <img src="${product.thumbnail}">
           <button type="button" class="card_button" id="${product.id - 1}" onclick="SoloCardDisplay(this.id)">Просмотр</button>
         `;
                 card.append(productElement);
